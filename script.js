@@ -41,7 +41,7 @@ function generatePassword(
   includeNumbers,
   includeSymbols
 ) {
-  console.log(SYMBOLS_CHAR_CODES);
+  //   console.log(SYMBOLS_CHAR_CODES);
 }
 
 function arrayFromLowtoHigh(low, high) {
