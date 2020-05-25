@@ -1,0 +1,98 @@
+body {
+  background-color: black;
+  margin: 0;
+  min-height: 100vh;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  background-color: lightslategray;
+  padding: 3rem;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: auto auto;
+  row-gap: 1rem;
+  column-gap: 3rem;
+  align-items: center;
+}
+/* container with results button and display */
+.results {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  font-size: 18px;
+  height: 50px;
+  width: 100%;
+  background-color: white;
+  border-radius: 3px;
+  margin-bottom: 20px;
+  margin-top: 25px;
+}
+
+/* Results header */
+.results #result {
+  word-wrap: break-word;
+  color: black;
+  width: 85%;
+  height: 85%;
+  background-color: tomato;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 4px;
+}
+
+.results .btn {
+  font-size: 20px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  height: 40px;
+  width: 40px;
+}
+
+.title {
+  margin: 0;
+  text-align: center;
+}
+
+/* label {
+  font-weight: bold;
+} */
+
+.character-amount-container {
+  display: flex;
+  align-items: center;
+}
+
+.number-input {
+  width: 2.5rem;
+}
+
+.submit-btn {
+  grid-column: span 2;
+  background-color: transparent;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-size: medium;
+  cursor: pointer;
+  border: 2px solid white;
+  border-radius: 5rem;
+  margin-top: 10px;
+}
+
+.submit-btn:hover {
+  background-color: #ffffff33;
+}
