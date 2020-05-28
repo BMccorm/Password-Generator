@@ -4,7 +4,6 @@ const range = document.getElementById("amountRange");
 const number = document.getElementById("amountNumber");
 const form = document.getElementById("passwordForm");
 const uppercaseEl = document.getElementById("uppercase");
-// const lowercaseEl = document.getElementById("lowercase");
 const numberEl = document.getElementById("numbers");
 const symbolEl = document.getElementById("symbols");
 const uppercaseCh = lowToHigh(65, 90);
@@ -34,10 +33,10 @@ form.addEventListener("submit", (e) => {
     symbols,
     numbers
   );
+  // links where results should be displayed
   passwordDisplay.innerText = password;
 });
 
-// issue w/ console.log
 function generatePassword(
   characterAmountVal,
   uppercaseVal,
@@ -53,6 +52,7 @@ function generatePassword(
     numbersVal
   );
 
+  // converts defined numbers to Character Codes
   let charCodes = lowercaseCh;
   if (uppercaseVal) charCodes = charCodes.concat(uppercaseCh);
   if (numbersVal) charCodes = charCodes.concat(numberCh);

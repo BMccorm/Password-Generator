@@ -11,7 +11,7 @@ body {
 
 .container {
   background-color: rgb(187, 219, 250);
-  padding: 3rem;
+  padding: 2rem;
   border-radius: 1rem;
   display: flex;
   justify-content: center;
@@ -46,6 +46,7 @@ form {
 h1 {
   margin: 0;
   text-align: center;
+  color: black;
 }
 
 .amount-container {
@@ -55,10 +56,9 @@ h1 {
 
 /* Results box */
 .display {
-  word-wrap: break-word;
+  word-break: break-word;
   color: black;
-  width: 85%;
-  height: 85%;
+  width: 350px;
   background-color: white;
   display: flex;
   justify-content: center;
@@ -67,7 +67,7 @@ h1 {
   padding: 1rem;
   border-radius: 0.5rem;
 }
-
+/* generate password button */
 button {
   grid-column: span 2;
   background-color: transparent;
