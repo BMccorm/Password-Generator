@@ -9,4 +9,4 @@ After clicking the "generate password" button, the password is displayed in the 
 The site is responsive for all screen sizes.
 <br>
 <br>
-<img src="Assets/Screen-Shot-1.png" alt="screenshot of screen 1" width="50%" vertically-align="top"><img src="Assets/Screen-Shot-2.png" alt="screenshot of screen 2" width="50%" vertically-align="top">
+<img src="Assets/Screen-Shot-1.png" alt="screenshot of screen 1" width="50%"><img src="Assets/Screen-Shot-2.png" alt="screenshot of screen 2" width="50%">
