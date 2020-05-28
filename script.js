@@ -1,57 +1,84 @@
-const passwordLengthRange = document.getElementById("passwordLengthRange");
-const passwordLengthNumber = document.getElementById("passwordLengthNumber");
-const includeUppercaseElement = document.getElementById("includeUppercase");
-const includeLowercaseElement = document.getElementById("includeLowercase");
-const includeNumbersElement = document.getElementById("includeNumbers");
-const includeSymbolsElement = document.getElementById("includeSymbols");
+// DOM Elements
 
-const form = document.getElementById("passwordGeneratorForm");
-const UPPERCASE_CHAR_CODES = arrayFromLowtoHigh(65, 90);
-const LOWERCASE_CHAR_CODES = arrayFromLowtoHigh(97, 122);
-const NUMBERS_CHAR_CODES = arrayFromLowtoHigh(48, 57);
-const SYMBOLS_CHAR_CODES = arrayFromLowtoHigh(33, 47)
-  .concat(arrayFromLowtoHigh(58, 64))
-  .concat(arrayFromLowtoHigh(91, 96))
-  .concat(arrayFromLowtoHigh(123, 126));
+const range = document.getElementById("amountRange");
+const number = document.getElementById("amountNumber");
+const form = document.getElementById("passwordForm");
+const uppercaseEl = document.getElementById("uppercase");
+// const lowercaseEl = document.getElementById("lowercase");
+const numberEl = document.getElementById("numbers");
+const symbolEl = document.getElementById("symbols");
+const uppercaseCh = lowToHigh(65, 90);
+const lowercaseCh = lowToHigh(97, 122);
+const numberCh = lowToHigh(48, 57);
+const symbolCh = lowToHigh(33, 47)
+  .concat(lowToHigh(58, 64))
+  .concat(lowToHigh(91, 96))
+  .concat(lowToHigh(123, 126));
+const passwordDisplay = document.getElementById("passwordDisplay");
 
-passwordLengthNumber.addEventListener("input", syncCharacterAmount);
-passwordLengthRange.addEventListener("input", syncCharacterAmount);
+// Event Listeners
+number.addEventListener("input", syncCharacterAmount);
+range.addEventListener("input", syncCharacterAmount);
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  const passwordLength = passwordLengthNumber.value;
-  const includeUppercase = includeUppercaseElement.checked;
-  const includeLowercase = includeLowercaseElement.checked;
-  const includeNumbers = includeNumbersElement.checked;
-  const includeSymbols = includeSymbolsElement.checked;
-
+  const characterAmount = number.value;
+  const uppercase = uppercaseEl.checked;
+  const lowercase = true;
+  const numbers = numberEl.checked;
+  const symbols = symbolEl.checked;
   const password = generatePassword(
-    passwordLength,
-    includeUppercase,
-    includeLowercase,
-    includeNumbers,
-    includeSymbols
+    characterAmount,
+    uppercase,
+    lowercase,
+    symbols,
+    numbers
   );
+  passwordDisplay.innerText = password;
 });
 
+// issue w/ console.log
 function generatePassword(
-  passwordLength,
-  includeUppercase,
-  includeLowercase,
-  includeNumbers,
-  includeSymbols
+  characterAmountVal,
+  uppercaseVal,
+  lowercaseVal,
+  symbolsVal,
+  numbersVal
 ) {
-  //   console.log(SYMBOLS_CHAR_CODES);
+  console.log(
+    characterAmountVal,
+    uppercaseVal,
+    lowercaseVal,
+    symbolsVal,
+    numbersVal
+  );
+
+  let charCodes = lowercaseCh;
+  if (uppercaseVal) charCodes = charCodes.concat(uppercaseCh);
+  if (numbersVal) charCodes = charCodes.concat(numberCh);
+  if (symbolsVal) charCodes = charCodes.concat(symbolCh);
+  const passwordCh = [];
+  console.log("CC", charCodes);
+  for (let i = 0; i < characterAmountVal; i++) {
+    const characterCode =
+      charCodes[Math.floor(Math.random() * charCodes.length)];
+    passwordCh.push(String.fromCharCode(characterCode));
+  }
+  console.log("PW", passwordCh);
+  return passwordCh.join("");
 }
 
-function arrayFromLowtoHigh(low, high) {
+function lowToHigh(low, high) {
   const array = [];
-  for (let i = low; i <= high; i++) array.push(i);
+  for (let i = low; i <= high; i++) {
+    array.push(i);
+  }
   return array;
 }
 
+// links slider and input box
 function syncCharacterAmount(e) {
   const value = e.target.value;
-  passwordLengthNumber.value = value;
-  passwordLengthRange.value = value;
+  number.value = value;
+  range.value = value;
 }

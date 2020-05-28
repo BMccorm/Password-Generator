@@ -3,61 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Password Generator</title>
-    <!-- stylesheet link -->
-    <link rel="stylesheet" href="style.css" />
-    <!-- font icons link -->
-    <script
-      src="https://kit.fontawesome.com/2e41a85ff9.js"
-      crossorigin="anonymous"
-    ></script>
-    <!-- javascript stylesheet defer att. allows it to be loaded after html -->
     <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Password Generator</title>
   </head>
-
   <body>
-    <!-- results container -->
     <div class="container">
-      <h2 class="title">Password Generator</h2>
-      <div class="results">
-        <span id="result"></span>
-        <!-- clipboard button -->
-        <button class="btn" id="clipboard"><i class="fas fa-paste"></i></button>
-      </div>
-      <!-- password length -->
-      <form id="passwordGeneratorForm" class="form">
-        <label for="passwordLength">Password Length</label>
-        <div class="character-amount-container">
-          <input
-            type="range"
-            min="8"
-            max="128"
-            value="8"
-            id="passwordLengthRange"
-          />
-          <input
-            class="number-input"
-            type="number"
-            min="8"
-            max="128"
-            value="8"
-            id="passwordLengthNumber"
-          />
+      <h1>Password Generator</h1>
+      <h3 class="display" id="passwordDisplay">Password</h3>
+      <form id="passwordForm">
+        <label for="length">Password Length</label>
+        <div class="amount-container">
+          <!-- slider -->
+          <input type="range" min="8" max="128" value="10" id="amountRange" />
+          <!-- number box -->
+          <input type="number" min="8" max="128" value="10" id="amountNumber" />
         </div>
-        <!-- prompts -->
-        <label for="includeUppercase">Include Uppercase</label>
-        <input type="checkbox" id="includeUppercase" />
 
-        <label for="includeLowercase">Include Lowercase</label>
-        <input type="checkbox" id="includeLowercase" />
+        <label for="uppercase">Include Uppercase</label>
+        <input type="checkbox" defaultChecked="false" id="uppercase" />
 
-        <label for="includeNumbers">Include Numbers</label>
-        <input type="checkbox" id="includeNumbers" />
+        <!-- <label for="lowercase">Include Lowercase</label>
+        <input type="checkbox" defaultChecked="false" id="lowercase" /> -->
 
-        <label for="includeSymbols">Include Symbols</label>
-        <input type="checkbox" id="includeSymbols" />
+        <label for="numbers">Include Numbers</label>
+        <input type="checkbox" defaultChecked="false" id="numbers" />
 
-        <button class="submit-btn" type="submit">Generate Password</button>
+        <label for="symbols">Include Symbols</label>
+        <input type="checkbox" defaultChecked="false" id="symbols" />
+
+        <button type="submit">Generate Password</button>
       </form>
     </div>
   </body>
